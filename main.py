@@ -1,3 +1,4 @@
+"""main"""
 import tkinter as tk
 from tkinter import ttk
 import psycopg2
@@ -5,6 +6,7 @@ import psycopg2
 from proj import PersonForm, EmergencyContactForm, InsuranceForm, MedicalHistoryForm, RecordsView
 
 class MainApplication(tk.Tk):
+    """main app"""
     def __init__(self):
         super().__init__()
         self.title("Medical Form")

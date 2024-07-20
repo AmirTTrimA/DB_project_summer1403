@@ -1,7 +1,10 @@
-import psycopg2
+"""DB Project"""
+
 import tkinter as tk
-from tkinter import *
+from tkinter import Frame
 from tkinter import ttk
+
+import psycopg2
 
 
 # Connect to the PostgreSQL database on the university server
@@ -472,7 +475,6 @@ class MainApplication(tk.Tk):
 
 def close_conn():
     conn.close()
-    pass
 
 # Implement CRUD operations
 def create_person(firstname, lastname, phonenumber, address, city, state, postalcode, country, birthdate):
@@ -493,7 +495,8 @@ def delete_person(personid):
 
 # Multi-table join query
 def get_person_with_details(personid):
-    c.execute("""SELECT p.firstname, p.lastname, p.phonenumber, p.address, p.city, p.state, p.postalcode, p.country, p.birthdate,
+    c.execute("""SELECT p.firstname, p.lastname, p.phonenumber, p.address,
+                        p.city, p.state, p.postalcode, p.country, p.birthdate,
                         e.emergencycontact, e.emergencycontactphone, e.emergencycontactworkphone,
                         i.insurancecompany, i.insuranceaddress, i.insurancecity, i.insurancestate, i.insurancepostalcode, i.insurancecountry, i.policynumber, i.expirydate,
                         m.hepatitisb, m.chickenpox, m.measles, m.significantmedicalhistory, m.medicalproblems, m.medication, m.allergies
